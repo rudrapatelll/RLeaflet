@@ -1,0 +1,48 @@
+---
+title: "R Markdown and Leaflet"
+author: "Rudra Patel"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Objectives
+Create a web page using R Markdown that features a map created with Leaflet. Host your webpage on either GitHub Pages, RPubs, or NeoCities.
+
+Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!
+
+#Review Criteria
+The rubric contains the following two questions:
+
+1. Does the web page feature a date and is this date less than two months before the date that you’re grading this assignment?
+
+```{r System Time}
+Sys.time()
+```
+
+```{r System Date}
+Sys.Date()
+```
+
+Does the web page feature an interactive map that appears to have been created with Leaflet?
+
+I will show in the map my top 5 cities to do vacations in Europe.
+
+```{r map}
+library(leaflet)
+
+Urlaub <- leaflet()
+Urlaub <- addTiles(Urlaub)
+Urlaub <- addMarkers(Urlaub, lng=77.23, lat=28.61, popup="Delhi, India")
+Urlaub <- addMarkers(Urlaub, lng=72.88, lat=19.07, popup="Mumbai, Maharashtra")
+Urlaub <- addMarkers(Urlaub, lng=73.17, lat=22.31, popup="Vadodara, Gujarat")
+Urlaub <- addMarkers(Urlaub, lng=72.57, lat=23.03, popup="Ahmedabad, Gujarat")
+Urlaub <- addMarkers(Urlaub, lng=78.49, lat=17.38, popup="Hyderabad, Telangana")
+
+Urlaub
+```
